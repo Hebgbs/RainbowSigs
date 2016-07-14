@@ -1,3 +1,4 @@
+```
 ####   ###  ##### #   # ####   ###  # # #
 #   # #   #   #   ##  # #   # #   # # # #
 ####  #####   #   # # # ####  #   # # # #
@@ -9,6 +10,7 @@
  ###    #   #  ##  ###
     #   #   #   #     # One-click mirror
 ####  #####  ###  ####  by Bad Minotaur
+```
 
 === ABOUT ===
 This set of files are modified animations, recolouring the stock heavy attacks (signatures) for all characters to become multi-coloured and pretty.
