@@ -1,0 +1,142 @@
+####   ###  #####  ###  #   #
+#   # #   #   #   #   # #   #
+####  #####   #   #     #####
+#   # #   #   #   #   # #   #
+####  #   #   #    ###  #   #
+
+#   #  ###  # # #       #####  ###
+#   # #   # # # #         #   #   #
+##### #   # # # # #####   #   #   #
+#   # #   # # # #         #   #   #
+#   #  ###   ###          #    ###
+
+=== Introduction ===
+This document is made expressly to detail how certain aspects of the batch scripts included with the Rainbow Sigs mod works. Through reading this, I hope it helps you better understand the scripts in a batter capacity than the reminder lines in them allows.
+
+This should also quell any doubts of their malicousness, as they're rather content just sitting there, being benign as good files should be.
+
+=== Rationale ===
+These scripts were created to fulfill three main goals;
+1) Be as easy as possible, without a graphical interface
+2) Make changes relatively quickly, without destorying original content
+3) Be as easy as re-duplicate and repeat steps done to apply it
+
+Failure to fulfill these goals isn't acceptable, which is why any problems you encounter are problems I wish to resolve. DM me on Discord; I'm NJVS | Bad Minotaur
+
+=== Making it functional ===
+READ THIS, IF NOTHING ELSE
+READ THIS, IF NOTHING ELSE
+READ THIS, IF NOTHING ELSE
+
+Subsequent use of these scripts are expected. This is why when you choose to apply new content, I've made it so even with new content, it shouldn't fail to re-apply the mod and act as expected.
+
+startInstall.bat sets variables for sigscript.bat to use, which is why you should edit that script first before running it. If you are reading this from Github, see the code first and make changes as necessary.
+
+The SET arguments define local variables that will be used for the duration of the script's operation. This keeps everything tidy below it, which makes managing the script super-easy for me, and makes fixing it up super-easy for you.
+
+Replace "whereIsSteam?" with your path where steam.exe exists, then replace "whereIsBrawlhalla?" with where brawlhalla is.
+Because you have to set the path where steam.exe is, and since that is also where your games are held, %steampath% can begin %gamepath% and come out as the script expects to perform the operations you expect. So for example, assuming this;
+
+SET steampath=c:\progra~2\steam.exe
+SET gamepath=%steampath%\steamapps\common\brawlhalla
+
+%gamepath% then uses %steampath% to output as c:\progra~2\steam\steamapps\common\brawlhalla.
+
+%steampath% needs to be defined for the validate and run functions to work, since this is used for both pre-installation (to force use of a fresh set of original files) and removal, as well to run the game after mod installation.
+
+sigscript.bat uses a combination of symbolic links and local variables to facilitate the duplication and use of the rainbow signatures. Since everybody's system is different, I've made it so users have to define their own paths in startInstall.bat.
+
+=== Details about sigscript.bat actions ===
+:debug
+1. GOTO edit; I case you first run this and need to fix some things up.
+This function exists for you to test things out before you begin. Functions, in order of appearance in the choice menus;
+2. GOTO pathdbg; DIR lists showing if you've set your paths right. If not, you'll see DIR finds no files.
+3. GOTO execute; A small misnomer here; You're already executing the script, but you haven't yet executed the install routine.
+4. GOTO postinst; See below, in :postinst
+5. GOTO intro1; Show introduction stuff (you can skip it, but you really shouldn't, as it makes sure you know exactly what you are doing.)
+
+:intro2
+Brief explanation of things before file executions take place. Can be skipped by pressing "2" in :debug
+
+:intro3
+The actual menu that lets you do stuff. As follows;
+1. GOTO edit; See :edit below.
+2. GOTO execute; See above, in :debug
+3. GOTO help1: This menu's help section.
+
+:edit
+Exit this script and proceed to notepad.exe, opening startInstall.bat.
+
+:execute
+Allows you to perform the actual "Meat" of the script; the file execution stuff. As follows:
+1. GOTO apply; Mod installation
+2. GOTO restore; Mod removal
+3. GOTO swap; Allows you to change between rainbow and default animations.
+4. GOTO help2; This menu's help section.
+
+:apply
+Actually a pre-install menu; You can do the following:
+1. GOTO verify; See below.
+2. GOTO proceed; Skip validation and get right to it.
+
+:verify
+Validate game prior to installing mod. useful if you had other modifications before.
+
+:proceed
+Pauses to show your game directory, then installs with the following routine;
+- Rename all original files
+- Copy mod files, renaming them to differentiate
+- Symbolically link mod files with temporary names for steps ahead
+- Copy temporary links with original filenames to names the game expects
+- Delete temporary links
+
+None of this makes sense at first, but things are done like this so the script does not overwrite anything important;
+- If renamed original files already exist, subsequent rename fails
+- All original files will be duplicated; This is if a minor release is made that doesn't append much into the game.
+  = If new files exist, they will be added into the game directory as well
+- Make links of the mod files with temporary names as placeholder files
+- Duplicate placeholders with names the game can use so they load
+  = If first rename failed, then symbolic links are overwritten with other symbolic links instead
+- Remove placeholder files to clean up after itself
+
+The game directory after the above will then be displayed.
+
+:restore
+Removes the mod completely. presents two options;
+1. GOTO onres; See :onres
+2. GOTO offres; See :offres
+
+Both options go to postres; see :postres
+
+:onres
+Removes copied original and mod files, then validates the game cache.
+
+:offres
+Duplicates renamed original files with originl filenames, before deleting all the mod files.
+
+:postres
+Shows game directory after removal and restoration to (near-)original state.
+
+:swap
+Allows to switch between mod and original animations without needing to remove the mod entirely. This is great for multi-user households that have differing preferences, or one set can be for private use, while the other can be used for public use. As follows:
+1. GOTO redomod; See :redomod
+2. GOTO undomod; See :undomod
+3. GOTO help3; This menu's help section.
+
+Both 1 and 2 will show game directory before and after, to verify no drastic changes had been made.
+
+:redomod
+Makes placeholder links for rainbow animations to be copied as original filenames, before tidying up.
+
+:redomod
+Makes placeholder links for default animations to be copied as original filenames, before tidying up.
+
+:postinst
+A menu that allows you to perform the following;
+1. Run the game (closes CMD)
+2. GOTO swap; See :swap
+3. GOTO restore; See :restore
+4. GOTO debug: See :debug
+
+:abort
+Multiple menus allow for this instance to be execited, which will end the script and close CMD. They are all accessible by using option 0 any time it is present.
