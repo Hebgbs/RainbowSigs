@@ -1,9 +1,7 @@
-```
 #Rainbow sigs
 
 Modification made by Blue Flame
 One-click mirror and batch scripts by Bad Minotaur
-```
 
 === ABOUT ===
 
