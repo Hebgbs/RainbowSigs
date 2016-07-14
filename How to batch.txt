@@ -128,7 +128,7 @@ Both 1 and 2 will show game directory before and after, to verify no drastic cha
 :redomod
 Makes placeholder links for rainbow animations to be copied as original filenames, before tidying up.
 
-:redomod
+:undomod
 Makes placeholder links for default animations to be copied as original filenames, before tidying up.
 
 :postinst
