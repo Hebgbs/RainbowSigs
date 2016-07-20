@@ -7,6 +7,9 @@ REM ###READ THIS!### +                                          +
 REM ##############   + More information about these variables   + 
 REM         ####     +      are in the notes below them.        +
 REM         ##       ++++++++++++++++++++++++++++++++++++++++++++
+REM | !!! If you made changes to this file, you shouldn't overwrite it.
+REM |     Making a duplicate of this script with settings for your system
+REM |     might not be a bad idea.
 REM | !!! System variables won't work for everything, but 8dot3 names will.
 REM |     Do not point directly at executables, rather, where the
 REM |     executables are.
