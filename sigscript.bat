@@ -125,7 +125,7 @@ REM |     DO NOT forget to increment date on each update.
 CLS
 COLOR 0A
 ECHO === Rainbow Sigs script ===
-ECHO == Revision 2.0 (071416) ==
+ECHO == Revision 2.0 (072016) ==
 ECHO.
 ECHO This script must be ran as administrator.
 ECHO.
@@ -621,6 +621,7 @@ GOTO postinst
 ++++++++++++++
 
 :abort
+CLS
 COLOR 0D
 ECHO Script terminated prematurely.
 ECHO While you shouldn't be afraid, it
