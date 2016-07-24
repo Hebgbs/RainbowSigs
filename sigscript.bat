@@ -61,7 +61,7 @@ PAUSE > NUL
 CLS
 ECHO Initialization script location
 ECHO ------------------------------
-DIR /B %!dp0\startInstall.bat
+DIR /B %~dp0\startInstall.bat
 ECHO ------------------------------
 ECHO.
 ECHO Steam path @ %steampath%
