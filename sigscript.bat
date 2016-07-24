@@ -1,4 +1,8 @@
 @ECHO OFF
+
+REM | Made with love by Brandon Bachman
+REM | Discord: "NJVS | Bad Minotaur"
+
 GOTO %1
 
 REM +++++++++++++++++++++++
@@ -11,17 +15,17 @@ COLOR 0E
 ECHO Diagnostics menu
 ECHO.
 ECHO If you had not already, choose to edit
-ECHO start script. Since every system is different,
-ECHO it is left to the user to make it functional.
+ECHO startInstall.bat. Since every system is different,
+ECHO it is left to the end user to make this functional.
 ECHO.
-ECHO If you've already used this script a few times,
+ECHO If you've already used this installer a few times,
 ECHO you're free to skip introductory content.
 ECHO Future menus will have a help section to assist
-ECHO you as you use this script. View file "READ ME.txt"
+ECHO you as you use this script. View "How to batch.txt"
 ECHO for more information about how this script functions.
 ECHO.
 ECHO 0. Terminate script
-ECHO 1. Edit start script
+ECHO 1. Edit startInstall.bat
 ECHO 2. Perform path check (recommended)
 ECHO 3. Skip introductory content
 ECHO 4. Skip to post-installation
@@ -41,7 +45,7 @@ CLS
 ECHO This will show if the paths this script uses
 ECHO are configured correctly. If this check yeilds
 ECHO something different than what you expect, then
-ECHO choose to edit this script.
+ECHO choose to edit startInstall.bat.
 ECHO.
 ECHO Further, this script must be ran from the same
 ECHO device which it resides in, and this script
@@ -57,7 +61,7 @@ PAUSE > NUL
 CLS
 ECHO Initialization script location
 ECHO ------------------------------
-DIR /B %~dp0\startInstall.bat
+DIR /B %!dp0\startInstall.bat
 ECHO ------------------------------
 ECHO.
 ECHO Steam path @ %steampath%
@@ -125,14 +129,14 @@ REM |     DO NOT forget to increment date on each update.
 CLS
 COLOR 0A
 ECHO === Rainbow Sigs script ===
-ECHO == Revision 2.1 (072416) ==
+ECHO == Revision 2.1 (072716) ==
 ECHO.
 ECHO This script must be ran as administrator.
 ECHO.
 ECHO This isn't configured for immediate use; You must
-ECHO define the variables at the top of this script.
-ECHO It also forces people to see inside the batch file
-ECHO to understand this is not malicious, and is only
+ECHO define the variables at the top of startInstall.bat.
+ECHO It also forces people to see inside the batch files
+ECHO so they understand this is not malicious, and is only
 ECHO intended to (easily) apply and remove cosmetic mods.
 ECHO.
 ECHO Symbolic links are used to switch between use of the
@@ -140,6 +144,11 @@ ECHO mod and use of default animations, a choice you can
 ECHO later decide to make. While this limits the script
 ECHO to later Windows versions, it makes everything easier
 ECHO for everyone, for those with Windows Vista or higher.
+ECHO.
+ECHO If you've managed to break your game using this script,
+ECHO blame yourself; it has been tested multiple times, and
+ECHo it can also be used to fix your game in the event of
+ECHO game issues presented by its misuse.
 ECHO.
 ECHO Press any key to continue.
 PAUSE > NUL
@@ -157,8 +166,8 @@ CLS
 ECHO Choose an action. If this is the first time
 ECHO executing this script, choose to edit instead.
 ECHO.
-ECHO 1. Edit this script
-ECHO 2. Execute this script
+ECHO 1. Edit startInstall.bat
+ECHO 2. Execute installer
 ECHO 3. View help and credits
 ECHO 0. Terminate script
 ECHO.
@@ -178,20 +187,22 @@ ECHO The Rainbow Signatures project is an incomplete,
 ECHO but ongoing effort to make Brawlhalla prettier.
 ECHO.
 ECHO Option 1: Opens a Notepad session and allows you to
-ECHO modify this script so it acts how you want it to.
+ECHO modify startInstall.bat so this acts how you want it to.
 ECHO.
-ECHO Option 2: Proceeds with the script's intended purpose,
+ECHO Option 2: Proceeds with this script's intended purpose,
 ECHO to replace all stock sigs with rainbow-coloured ones. 
 ECHO.
 ECHO This script contains no malicious code if downloaded
-ECHO from its intended source; http://pc.cd/WNtctalK
+ECHO from either of its official sources:
+ECHO https://pc.cd/WNtctalK
+ECHO https://github.com/Hebgbs/RainbowSigs
 ECHO.
 ECHO Press any key to return at previous menu
 PAUSE > NUL
 GOTO intro3
 
 REM | !!! Remember, editloc needs backslash at
-REM |     the end, if you used that SET argument.
+REM |     the end, if you changed that SET argument.
 :edit
 CLS
 COLOR 0E
@@ -202,7 +213,7 @@ ECHO.
 ECHO Ensure you adjust the variables there so sigscript.bat
 ECHO performs as intended.
 ECHO.
-ECHO Press any key to begin modifying this script.
+ECHO Press any key to begin modifying startInstall.bat.
 PAUSE > NUL
 START %editloc%%editor% ./startInstall.bat
 EXIT
@@ -215,9 +226,9 @@ COLOR 0A
 CLS
 ECHO What would you like to do?
 ECHO.
-ECHO 1. Apply
-ECHO 2. Restore
-ECHO 3. Swap / Refresh animations
+ECHO 1. Apply rainbow signatures
+ECHO 2. Restore to default signatures
+ECHO 3. Swap signature animations
 ECHO 4. View help
 ECHO 0. Terminate script
 ECHO.
@@ -241,16 +252,21 @@ ECHO and make links to the rainbow sigs; This
 ECHO method ensures there is no accidental
 ECHo deletion of content when option 2 is used.
 ECHO.
-ECHO Option 2: This will remove the mod by
-ECHO deleting the symbolic links and mod files
-ECHo then rename the stock files as they were.
+ECHO Option 2: This will remove the mod in one
+ECHO of two ways;
+ECHO 1. Delete files this script created, then
+ECHO    Use Steam to validate game files, which
+ECHO    will remove all modifications
+ECHO 2. Delete the symbolic links and mod files
+ECHo    then rename the stock files as they were.
+ECHO    This shouldn't be done unless access to
+ECHO    the internet is not possible.
 ECHO.
 ECHO Option 3: This will allow you to choose
 ECHO between one of three options, explained in
 ECHO its own help section;
 ECHO - Use default animations
-ECHO - Use rainbow animatins
-ECHO - Refresh rainbow animations
+ECHO - Use rainbow animations
 ECHO The last option is for when the rainbow
 ECHO sigs mod receives an update.
 ECHO.
@@ -286,12 +302,12 @@ if '%choice%'=='2' GOTO proceed
 
 :verify
 CLS
-ECHO This script needs to be configured before it is ran
-ECHO so it knows where Steam is. If you had not done this
-ECHO already, then choose to edit this script instead.
+ECHO startInstall.bat needs to be configured before this script
+ECHO performs so it knows where Steam is. If you had not done this
+ECHO already, then choose to edit startInstall.bat instead.
 ECHO.
 ECHO 1. Begin validation
-ECHO 2. Edit this script.
+ECHO 2. Edit startInstall.bat
 ECHO.
 set /p choice=Selection: 
 if '%choice%'=='' ECHO "%choice%" isn't a selection; Try again.
@@ -301,11 +317,16 @@ if '%choice%'=='2' GOTO edit
 :doverify
 CLS
 ECHO The verification process should begin after you press
-ECHO any key. Else, edit this script to replace whatever
-ECHO "steampath" refers to.
+ECHO any key. Else, edit startInstall.bat to replace
+ECHO whatever "steampath" refers to.
 ECHO.
+DEL /Q %gamepath%\backup_*
 %steampath%\steam.exe steam://validate/291550
 ECHO Do not proceed until validation is complete.
+ECHO If you are a user of Windows 8 or greater,
+ECHO you can use Steam's appearance in taskbar
+ECHO since it will show a progress bar there.
+ECHO.
 ECHO When it is done, press any key to continue.
 PAUSE > NUL
 GOTO proceed
@@ -320,15 +341,16 @@ DIR /B %gamepath%\Animation*
 DIR /B %gamepath%\SFX*
 ECHO -----------------------------------------------
 ECHO.
-ECHO If you've applied this mod before, then ignore
-ECHO any renaming errors which will occur.
+ECHO If you've applied this mod before, you must validate 
+ECHO the game's files to prevent potential issues if you're
+ECHO forced to use this script's offline restore method.
+ECHO.
 ECHO Press any key to apply.
 PAUSE > NUL
 ECHO.
 REN %gamepath%\Animation_Axe.swf backup_Animation_Axe.swf
 REN %gamepath%\Animation_Hammer.swf backup_Animation_Hammer.swf
 REN %gamepath%\Animation_Katar.swf backup_Animation_Katar.swf
-REN %gamepath%\Animation_Lance.swf backup_Animation_Lance.swf
 REN %gamepath%\Animation_Pistols.swf backup_Animation_Pistols.swf
 REN %gamepath%\Animation_Spear.swf backup_Animation_Spear.swf
 REN %gamepath%\Animation_Sword.swf backup_Animation_Sword.swf
@@ -337,7 +359,6 @@ REN %gamepath%\SFX_Hammer.swf backup_SFX_Hammer.swf
 COPY /Y %~dp0\Animation_Axe.swf %gamepath%\rainbow_Animation_Axe.swf
 COPY /Y %~dp0\Animation_Hammer.swf %gamepath%\rainbow_Animation_Hammer.swf
 COPY /Y %~dp0\Animation_Katar.swf %gamepath%\rainbow_Animation_Katar.swf
-COPY /Y %~dp0\Animation_Lance.swf %gamepath%\rainbow_Animation_Lance.swf
 COPY /Y %~dp0\Animation_Pistols.swf %gamepath%\rainbow_Animation_Pistols.swf
 COPY /Y %~dp0\Animation_Spear.swf %gamepath%\rainbow_Animation_Spear.swf
 COPY /Y %~dp0\Animation_Sword.swf %gamepath%\rainbow_Animation_Sword.swf
@@ -346,7 +367,6 @@ COPY /Y %~dp0\SFX_Hammer.swf %gamepath%\rainbow_SFX_Hammer.swf
 MKLINK %gamepath%\replace_Animation_Axe.swf %gamepath%\rainbow_Animation_Axe.swf
 MKLINK %gamepath%\replace_Animation_Hammer.swf %gamepath%\rainbow_Animation_Hammer.swf
 MKLINK %gamepath%\replace_Animation_Katar.swf %gamepath%\rainbow_Animation_Katar.swf
-MKLINK %gamepath%\replace_Animation_Lance.swf %gamepath%\rainbow_Animation_Lance.swf
 MKLINK %gamepath%\replace_Animation_Pistols.swf %gamepath%\rainbow_Animation_Pistols.swf
 MKLINK %gamepath%\replace_Animation_Spear.swf %gamepath%\rainbow_Animation_Spear.swf
 MKLINK %gamepath%\replace_Animation_Sword.swf %gamepath%\rainbow_Animation_Sword.swf
@@ -355,7 +375,6 @@ MKLINK %gamepath%\replace_SFX_Hammer.swf %gamepath%\rainbow_SFX_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Axe.swf %gamepath%\Animation_Axe.swf
 COPY /L /Y %gamepath%\replace_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Katar.swf %gamepath%\Animation_Katar.swf
-COPY /L /Y %gamepath%\replace_Animation_Lance.swf %gamepath%\Animation_Lance.swf
 COPY /L /Y %gamepath%\replace_Animation_Pistols.swf %gamepath%\Animation_Pistols.swf
 COPY /L /Y %gamepath%\replace_Animation_Spear.swf %gamepath%\Animation_Spear.swf
 COPY /L /Y %gamepath%\replace_Animation_Sword.swf %gamepath%\Animation_Sword.swf
@@ -443,11 +462,10 @@ REM |     to the internet isn't possible.
 :offres
 REM | !!! Line below included because the whole
 REM |     symlink thing was being weird.
-DEL /Q %gamepath%\Animation_Axe.swf %gamepath%\Animation_Hammer.swf %gamepath%\Animation_Katar.swf %gamepath%\Animation_Lance.swf %gamepath%\Animation_Pistols.swf %gamepath%\Animation_Spear.swf %gamepath%\Animation_Sword.swf %gamepath%\SFX_1.swf %gamepath%\SFX_Hammer.swf
+DEL /Q %gamepath%\Animation_Axe.swf %gamepath%\Animation_Hammer.swf %gamepath%\Animation_Katar.swf %gamepath%\Animation_Pistols.swf %gamepath%\Animation_Spear.swf %gamepath%\Animation_Sword.swf %gamepath%\SFX_1.swf %gamepath%\SFX_Hammer.swf
 COPY /Y %gamepath%\backup_Animation_Axe.swf %gamepath%\Animation_Axe.swf
 COPY /Y %gamepath%\backup_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
 COPY /Y %gamepath%\backup_Animation_Katar.swf %gamepath%\Animation_Katar.swf
-COPY /Y %gamepath%\backup_Animation_Lance.swf %gamepath%\Animation_Lance.swf
 COPY /Y %gamepath%\backup_Animation_Pistols.swf %gamepath%\Animation_Pistols.swf
 COPY /Y %gamepath%\backup_Animation_Spear.swf %gamepath%\Animation_Spear.swf
 COPY /Y %gamepath%\backup_Animation_Sword.swf %gamepath%\Animation_Sword.swf
@@ -541,7 +559,6 @@ PAUSE > NUL
 MKLINK %gamepath%\replace_Animation_Axe.swf %gamepath%\rainbow_Animation_Axe.swf
 MKLINK %gamepath%\replace_Animation_Hammer.swf %gamepath%\rainbow_Animation_Hammer.swf
 MKLINK %gamepath%\replace_Animation_Katar.swf %gamepath%\rainbow_Animation_Katar.swf
-MKLINK %gamepath%\replace_Animation_Lance.swf %gamepath%\rainbow_Animation_Lance.swf
 MKLINK %gamepath%\replace_Animation_Pistols.swf %gamepath%\rainbow_Animation_Pistols.swf
 MKLINK %gamepath%\replace_Animation_Spear.swf %gamepath%\rainbow_Animation_Spear.swf
 MKLINK %gamepath%\replace_Animation_Sword.swf %gamepath%\rainbow_Animation_Sword.swf
@@ -550,7 +567,6 @@ MKLINK %gamepath%\replace_SFX_Hammer.swf %gamepath%\rainbow_SFX_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Axe.swf %gamepath%\Animation_Axe.swf
 COPY /L /Y %gamepath%\replace_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Katar.swf %gamepath%\Animation_Katar.swf
-COPY /L /Y %gamepath%\replace_Animation_Lance.swf %gamepath%\Animation_Lance.swf
 COPY /L /Y %gamepath%\replace_Animation_Pistols.swf %gamepath%\Animation_Pistols.swf
 COPY /L /Y %gamepath%\replace_Animation_Spear.swf %gamepath%\Animation_Spear.swf
 COPY /L /Y %gamepath%\replace_Animation_Sword.swf %gamepath%\Animation_Sword.swf
@@ -591,7 +607,6 @@ PAUSE > NUL
 MKLINK %gamepath%\replace_Animation_Axe.swf %gamepath%\backup_Animation_Axe.swf
 MKLINK %gamepath%\replace_Animation_Hammer.swf %gamepath%\backup_Animation_Hammer.swf
 MKLINK %gamepath%\replace_Animation_Katar.swf %gamepath%\backup_Animation_Katar.swf
-MKLINK %gamepath%\replace_Animation_Lance.swf %gamepath%\backup_Animation_Lance.swf
 MKLINK %gamepath%\replace_Animation_Pistols.swf %gamepath%\backup_Animation_Pistols.swf
 MKLINK %gamepath%\replace_Animation_Spear.swf %gamepath%\backup_Animation_Spear.swf
 MKLINK %gamepath%\replace_Animation_Sword.swf %gamepath%\backup_Animation_Sword.swf
@@ -600,14 +615,12 @@ MKLINK %gamepath%\replace_SFX_Hammer.swf %gamepath%\backup_SFX_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Axe.swf %gamepath%\Animation_Axe.swf
 COPY /L /Y %gamepath%\replace_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Katar.swf %gamepath%\Animation_Katar.swf
-COPY /L /Y %gamepath%\replace_Animation_Lance.swf %gamepath%\Animation_Lance.swf
 COPY /L /Y %gamepath%\replace_Animation_Pistols.swf %gamepath%\Animation_Pistols.swf
 COPY /L /Y %gamepath%\replace_Animation_Spear.swf %gamepath%\Animation_Spear.swf
 COPY /L /Y %gamepath%\replace_Animation_Sword.swf %gamepath%\Animation_Sword.swf
 COPY /L /Y %gamepath%\replace_SFX_1.swf %gamepath%\SFX_1.swf
 COPY /L /Y %gamepath%\replace_SFX_Hammer.swf %gamepath%\SFX_Hammer.swf
 DEL %gamepath%\replace_*
-DIR
 ECHO.
 ECHO Changes applied.
 ECHO Press any key to continue.
@@ -637,7 +650,7 @@ ECHO While you shouldn't be afraid, it
 ECHO is understandable why you may be.
 ECHO.
 ECHO Reassure yourself the safety of
-ECHO this script and try again. :)
+ECHO these script and try again. :)
 ECHO.
 ECHO Press any key to exit.
 PAUSE > NUL

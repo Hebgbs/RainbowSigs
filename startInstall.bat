@@ -1,5 +1,8 @@
 @ECHO OFF
 
+REM | Made with love by Brandon Bachman
+REM | Discord: "NJVS | Bad Minotaur"
+
 REM         ##       ++++++++++++++++++++++++++++++++++++++++++++
 REM         ####     +   Adjust below variables. They will be   +
 REM ##############   +          used for sigscript.bat          +
@@ -7,14 +10,6 @@ REM ###READ THIS!### +                                          +
 REM ##############   + More information about these variables   + 
 REM         ####     +      are in the notes below them.        +
 REM         ##       ++++++++++++++++++++++++++++++++++++++++++++
-REM | !!! If you made changes to this file, you shouldn't overwrite it.
-REM |     Making a duplicate of this script with settings for your system
-REM |     might not be a bad idea.
-REM | !!! System variables won't work for everything, but 8dot3 names will.
-REM |     Do not point directly at executables, rather, where the
-REM |     executables are.
-REM | !!! These variables are only for sigscript; You cannot use them
-REM |     to open anyrhing at these locations outside of this script.
 
 REM Local variable settings
 REM -----------------------
@@ -22,6 +17,15 @@ SET steampath=c:\progra~2\steam
 SET gamepath=%steampath%\steamapps\common\brawlhalla
 SET editloc=%systemroot%\
 SET editor=notepad.exe
+
+REM | !!! It may be a good idea to keep a copy of this file
+REM |     with your own preferences, should you had needed
+REM |     to modify this batch file.
+REM | !!! System variables won't work for everything, but 8dot3
+REM |     names will. Do not point directly at executables,
+REM |     rather, where the executables are.
+REM | !!! These variables are only for sigscript; You cannot use them
+REM |     to open anyrhing at these locations outside of that script.
 
 REM +++++++++++++++++++++++++++++++++++++++++++
 REM + Information about local variables used: +
@@ -76,3 +80,6 @@ REM | !!! Don't touch any of this.
 CD %~dp0
 SET init=debug
 CALL sigscript.bat %init%
+
+REM | Made with love by Brandon Bachman
+REM | EOF
