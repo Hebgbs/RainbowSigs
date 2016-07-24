@@ -351,6 +351,7 @@ ECHO.
 REN %gamepath%\Animation_Axe.swf backup_Animation_Axe.swf
 REN %gamepath%\Animation_Hammer.swf backup_Animation_Hammer.swf
 REN %gamepath%\Animation_Katar.swf backup_Animation_Katar.swf
+REN %gamepath%\Animation_Lance.swf backup_Animation_Lance.swf
 REN %gamepath%\Animation_Pistols.swf backup_Animation_Pistols.swf
 REN %gamepath%\Animation_Spear.swf backup_Animation_Spear.swf
 REN %gamepath%\Animation_Sword.swf backup_Animation_Sword.swf
@@ -359,6 +360,7 @@ REN %gamepath%\SFX_Hammer.swf backup_SFX_Hammer.swf
 COPY /Y %~dp0\Animation_Axe.swf %gamepath%\rainbow_Animation_Axe.swf
 COPY /Y %~dp0\Animation_Hammer.swf %gamepath%\rainbow_Animation_Hammer.swf
 COPY /Y %~dp0\Animation_Katar.swf %gamepath%\rainbow_Animation_Katar.swf
+COPY /Y %~dp0\Animation_Lance.swf %gamepath%\rainbow_Animation_Lance.swf
 COPY /Y %~dp0\Animation_Pistols.swf %gamepath%\rainbow_Animation_Pistols.swf
 COPY /Y %~dp0\Animation_Spear.swf %gamepath%\rainbow_Animation_Spear.swf
 COPY /Y %~dp0\Animation_Sword.swf %gamepath%\rainbow_Animation_Sword.swf
@@ -367,6 +369,7 @@ COPY /Y %~dp0\SFX_Hammer.swf %gamepath%\rainbow_SFX_Hammer.swf
 MKLINK %gamepath%\replace_Animation_Axe.swf %gamepath%\rainbow_Animation_Axe.swf
 MKLINK %gamepath%\replace_Animation_Hammer.swf %gamepath%\rainbow_Animation_Hammer.swf
 MKLINK %gamepath%\replace_Animation_Katar.swf %gamepath%\rainbow_Animation_Katar.swf
+MKLINK %gamepath%\replace_Animation_Lance.swf %gamepath%\rainbow_Animation_Lance.swf
 MKLINK %gamepath%\replace_Animation_Pistols.swf %gamepath%\rainbow_Animation_Pistols.swf
 MKLINK %gamepath%\replace_Animation_Spear.swf %gamepath%\rainbow_Animation_Spear.swf
 MKLINK %gamepath%\replace_Animation_Sword.swf %gamepath%\rainbow_Animation_Sword.swf
@@ -375,6 +378,7 @@ MKLINK %gamepath%\replace_SFX_Hammer.swf %gamepath%\rainbow_SFX_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Axe.swf %gamepath%\Animation_Axe.swf
 COPY /L /Y %gamepath%\replace_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Katar.swf %gamepath%\Animation_Katar.swf
+COPY /L /Y %gamepath%\replace_Animation_Lance.swf %gamepath%\Animation_Lance.swf
 COPY /L /Y %gamepath%\replace_Animation_Pistols.swf %gamepath%\Animation_Pistols.swf
 COPY /L /Y %gamepath%\replace_Animation_Spear.swf %gamepath%\Animation_Spear.swf
 COPY /L /Y %gamepath%\replace_Animation_Sword.swf %gamepath%\Animation_Sword.swf
@@ -462,10 +466,11 @@ REM |     to the internet isn't possible.
 :offres
 REM | !!! Line below included because the whole
 REM |     symlink thing was being weird.
-DEL /Q %gamepath%\Animation_Axe.swf %gamepath%\Animation_Hammer.swf %gamepath%\Animation_Katar.swf %gamepath%\Animation_Pistols.swf %gamepath%\Animation_Spear.swf %gamepath%\Animation_Sword.swf %gamepath%\SFX_1.swf %gamepath%\SFX_Hammer.swf
+DEL /Q %gamepath%\Animation_Axe.swf %gamepath%\Animation_Hammer.swf %gamepath%\Animation_Katar.swf %gamepath%\Animation_Lance.swf %gamepath%\Animation_Pistols.swf %gamepath%\Animation_Spear.swf %gamepath%\Animation_Sword.swf %gamepath%\SFX_1.swf %gamepath%\SFX_Hammer.swf
 COPY /Y %gamepath%\backup_Animation_Axe.swf %gamepath%\Animation_Axe.swf
 COPY /Y %gamepath%\backup_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
 COPY /Y %gamepath%\backup_Animation_Katar.swf %gamepath%\Animation_Katar.swf
+COPY /Y %gamepath%\backup_Animation_Lance.swf %gamepath%\Animation_Lance.swf
 COPY /Y %gamepath%\backup_Animation_Pistols.swf %gamepath%\Animation_Pistols.swf
 COPY /Y %gamepath%\backup_Animation_Spear.swf %gamepath%\Animation_Spear.swf
 COPY /Y %gamepath%\backup_Animation_Sword.swf %gamepath%\Animation_Sword.swf
@@ -559,6 +564,7 @@ PAUSE > NUL
 MKLINK %gamepath%\replace_Animation_Axe.swf %gamepath%\rainbow_Animation_Axe.swf
 MKLINK %gamepath%\replace_Animation_Hammer.swf %gamepath%\rainbow_Animation_Hammer.swf
 MKLINK %gamepath%\replace_Animation_Katar.swf %gamepath%\rainbow_Animation_Katar.swf
+MKLINK %gamepath%\replace_Animation_Lance.swf %gamepath%\rainbow_Animation_Lance.swf
 MKLINK %gamepath%\replace_Animation_Pistols.swf %gamepath%\rainbow_Animation_Pistols.swf
 MKLINK %gamepath%\replace_Animation_Spear.swf %gamepath%\rainbow_Animation_Spear.swf
 MKLINK %gamepath%\replace_Animation_Sword.swf %gamepath%\rainbow_Animation_Sword.swf
@@ -567,6 +573,7 @@ MKLINK %gamepath%\replace_SFX_Hammer.swf %gamepath%\rainbow_SFX_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Axe.swf %gamepath%\Animation_Axe.swf
 COPY /L /Y %gamepath%\replace_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Katar.swf %gamepath%\Animation_Katar.swf
+COPY /L /Y %gamepath%\replace_Animation_Lance.swf %gamepath%\Animation_Lance.swf
 COPY /L /Y %gamepath%\replace_Animation_Pistols.swf %gamepath%\Animation_Pistols.swf
 COPY /L /Y %gamepath%\replace_Animation_Spear.swf %gamepath%\Animation_Spear.swf
 COPY /L /Y %gamepath%\replace_Animation_Sword.swf %gamepath%\Animation_Sword.swf
@@ -607,6 +614,7 @@ PAUSE > NUL
 MKLINK %gamepath%\replace_Animation_Axe.swf %gamepath%\backup_Animation_Axe.swf
 MKLINK %gamepath%\replace_Animation_Hammer.swf %gamepath%\backup_Animation_Hammer.swf
 MKLINK %gamepath%\replace_Animation_Katar.swf %gamepath%\backup_Animation_Katar.swf
+MKLINK %gamepath%\replace_Animation_Lance.swf %gamepath%\backup_Animation_Lance.swf
 MKLINK %gamepath%\replace_Animation_Pistols.swf %gamepath%\backup_Animation_Pistols.swf
 MKLINK %gamepath%\replace_Animation_Spear.swf %gamepath%\backup_Animation_Spear.swf
 MKLINK %gamepath%\replace_Animation_Sword.swf %gamepath%\backup_Animation_Sword.swf
@@ -615,6 +623,7 @@ MKLINK %gamepath%\replace_SFX_Hammer.swf %gamepath%\backup_SFX_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Axe.swf %gamepath%\Animation_Axe.swf
 COPY /L /Y %gamepath%\replace_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Katar.swf %gamepath%\Animation_Katar.swf
+COPY /L /Y %gamepath%\replace_Animation_Lance.swf %gamepath%\Animation_Lance.swf
 COPY /L /Y %gamepath%\replace_Animation_Pistols.swf %gamepath%\Animation_Pistols.swf
 COPY /L /Y %gamepath%\replace_Animation_Spear.swf %gamepath%\Animation_Spear.swf
 COPY /L /Y %gamepath%\replace_Animation_Sword.swf %gamepath%\Animation_Sword.swf
