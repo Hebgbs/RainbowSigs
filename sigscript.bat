@@ -129,7 +129,7 @@ REM |     DO NOT forget to increment date on each update.
 CLS
 COLOR 0A
 ECHO === Rainbow Sigs script ===
-ECHO == Revision 2.2 (072816) ==
+ECHO == Revision 2.3 (080516) ==
 ECHO.
 ECHO This script must be ran as administrator.
 ECHO.
@@ -349,6 +349,7 @@ ECHO Press any key to apply.
 PAUSE > NUL
 ECHO.
 REN %gamepath%\Animation_Axe.swf backup_Animation_Axe.swf
+REN %gamepath%\Animation_Bow.swf backup_Animation_Bow.swf
 REN %gamepath%\Animation_Hammer.swf backup_Animation_Hammer.swf
 REN %gamepath%\Animation_Katar.swf backup_Animation_Katar.swf
 REN %gamepath%\Animation_Lance.swf backup_Animation_Lance.swf
@@ -359,6 +360,7 @@ REN %gamepath%\SFX_1.swf backup_SFX_1.swf
 REN %gamepath%\SFX_Hammer.swf backup_SFX_Hammer.swf
 REN %gamepath%\SFX_Sword.swf backup_SFX_Sword.swf
 COPY /Y %~dp0\Animation_Axe.swf %gamepath%\rainbow_Animation_Axe.swf
+COPY /Y %~dp0\Animation_Bow.swf %gamepath%\rainbow_Animation_Bow.swf
 COPY /Y %~dp0\Animation_Hammer.swf %gamepath%\rainbow_Animation_Hammer.swf
 COPY /Y %~dp0\Animation_Katar.swf %gamepath%\rainbow_Animation_Katar.swf
 COPY /Y %~dp0\Animation_Lance.swf %gamepath%\rainbow_Animation_Lance.swf
@@ -369,6 +371,7 @@ COPY /Y %~dp0\SFX_1.swf %gamepath%\rainbow_SFX_1.swf
 COPY /Y %~dp0\SFX_Hammer.swf %gamepath%\rainbow_SFX_Hammer.swf
 COPY /Y %~dp0\SFX_Sword.swf %gamepath%\rainbow_SFX_Sword.swf
 MKLINK %gamepath%\replace_Animation_Axe.swf %gamepath%\rainbow_Animation_Axe.swf
+MKLINK %gamepath%\replace_Animation_Bow.swf %gamepath%\rainbow_Animation_Bow.swf
 MKLINK %gamepath%\replace_Animation_Hammer.swf %gamepath%\rainbow_Animation_Hammer.swf
 MKLINK %gamepath%\replace_Animation_Katar.swf %gamepath%\rainbow_Animation_Katar.swf
 MKLINK %gamepath%\replace_Animation_Lance.swf %gamepath%\rainbow_Animation_Lance.swf
@@ -379,6 +382,7 @@ MKLINK %gamepath%\replace_SFX_1.swf %gamepath%\rainbow_SFX_1.swf
 MKLINK %gamepath%\replace_SFX_Hammer.swf %gamepath%\rainbow_SFX_Hammer.swf
 MKLINK %gamepath%\replace_SFX_Sword.swf %gamepath%\rainbow_SFX_Sword.swf
 COPY /L /Y %gamepath%\replace_Animation_Axe.swf %gamepath%\Animation_Axe.swf
+COPY /L /Y %gamepath%\replace_Animation_Bow.swf %gamepath%\Animation_Bow.swf
 COPY /L /Y %gamepath%\replace_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Katar.swf %gamepath%\Animation_Katar.swf
 COPY /L /Y %gamepath%\replace_Animation_Lance.swf %gamepath%\Animation_Lance.swf
@@ -470,8 +474,9 @@ REM |     to the internet isn't possible.
 :offres
 REM | !!! Line below included because the whole
 REM |     symlink thing was being weird.
-DEL /Q %gamepath%\Animation_Axe.swf %gamepath%\Animation_Hammer.swf %gamepath%\Animation_Katar.swf %gamepath%\Animation_Lance.swf %gamepath%\Animation_Pistols.swf %gamepath%\Animation_Spear.swf %gamepath%\Animation_Sword.swf %gamepath%\SFX_1.swf %gamepath%\SFX_Hammer.swf %gamepath%\SFX_Sword.swf
+DEL /Q %gamepath%\Animation_Axe.swf %gamepath%\Animation_Bow.swf %gamepath%\Animation_Hammer.swf %gamepath%\Animation_Katar.swf %gamepath%\Animation_Lance.swf %gamepath%\Animation_Pistols.swf %gamepath%\Animation_Spear.swf %gamepath%\Animation_Sword.swf %gamepath%\SFX_1.swf %gamepath%\SFX_Hammer.swf %gamepath%\SFX_Sword.swf
 COPY /Y %gamepath%\backup_Animation_Axe.swf %gamepath%\Animation_Axe.swf
+COPY /Y %gamepath%\backup_Animation_Bow.swf %gamepath%\Animation_Bow.swf
 COPY /Y %gamepath%\backup_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
 COPY /Y %gamepath%\backup_Animation_Katar.swf %gamepath%\Animation_Katar.swf
 COPY /Y %gamepath%\backup_Animation_Lance.swf %gamepath%\Animation_Lance.swf
@@ -567,6 +572,7 @@ ECHO.
 ECHO Press any key to use rainbow signatures.
 PAUSE > NUL
 MKLINK %gamepath%\replace_Animation_Axe.swf %gamepath%\rainbow_Animation_Axe.swf
+MKLINK %gamepath%\replace_Animation_Bow.swf %gamepath%\rainbow_Animation_Bow.swf
 MKLINK %gamepath%\replace_Animation_Hammer.swf %gamepath%\rainbow_Animation_Hammer.swf
 MKLINK %gamepath%\replace_Animation_Katar.swf %gamepath%\rainbow_Animation_Katar.swf
 MKLINK %gamepath%\replace_Animation_Lance.swf %gamepath%\rainbow_Animation_Lance.swf
@@ -577,6 +583,7 @@ MKLINK %gamepath%\replace_SFX_1.swf %gamepath%\rainbow_SFX_1.swf
 MKLINK %gamepath%\replace_SFX_Hammer.swf %gamepath%\rainbow_SFX_Hammer.swf
 MKLINK %gamepath%\replace_SFX_Sword.swf %gamepath%\rainbow_SFX_Sword.swf
 COPY /L /Y %gamepath%\replace_Animation_Axe.swf %gamepath%\Animation_Axe.swf
+COPY /L /Y %gamepath%\replace_Animation_Bow.swf %gamepath%\Animation_Bow.swf
 COPY /L /Y %gamepath%\replace_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Katar.swf %gamepath%\Animation_Katar.swf
 COPY /L /Y %gamepath%\replace_Animation_Lance.swf %gamepath%\Animation_Lance.swf
@@ -619,6 +626,7 @@ ECHO.
 ECHO Press any key to use default signatures.
 PAUSE > NUL
 MKLINK %gamepath%\replace_Animation_Axe.swf %gamepath%\backup_Animation_Axe.swf
+MKLINK %gamepath%\replace_Animation_Bow.swf %gamepath%\backup_Animation_Bow.swf
 MKLINK %gamepath%\replace_Animation_Hammer.swf %gamepath%\backup_Animation_Hammer.swf
 MKLINK %gamepath%\replace_Animation_Katar.swf %gamepath%\backup_Animation_Katar.swf
 MKLINK %gamepath%\replace_Animation_Lance.swf %gamepath%\backup_Animation_Lance.swf
@@ -629,6 +637,7 @@ MKLINK %gamepath%\replace_SFX_1.swf %gamepath%\backup_SFX_1.swf
 MKLINK %gamepath%\replace_SFX_Hammer.swf %gamepath%\backup_SFX_Hammer.swf
 MKLINK %gamepath%\replace_SFX_Sword.swf %gamepath%\backup_SFX_Sword.swf
 COPY /L /Y %gamepath%\replace_Animation_Axe.swf %gamepath%\Animation_Axe.swf
+COPY /L /Y %gamepath%\replace_Animation_Bow.swf %gamepath%\Animation_Bow.swf
 COPY /L /Y %gamepath%\replace_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
 COPY /L /Y %gamepath%\replace_Animation_Katar.swf %gamepath%\Animation_Katar.swf
 COPY /L /Y %gamepath%\replace_Animation_Lance.swf %gamepath%\Animation_Lance.swf
