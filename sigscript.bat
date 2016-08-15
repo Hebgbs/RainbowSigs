@@ -3,6 +3,32 @@
 REM | Made with love by Brandon Bachman
 REM | Discord: "NJVS | Bad Minotaur"
 
+REM +++++++++++++++++++++++++++++++++++++++
+REM + Things to make stuff easier for me. +
+REM + This script relies on these labels. +
+REM +++++++++++++++++++++++++++++++++++++++
+REM | File name suffixes
+REM | ----------------------------
+SET bk=Backup_
+SET rp=Replace_
+SET rb=Rainbow_
+REM | File purpose and other stuff
+REM | ----------------------------
+SET an=Animation_
+SET fx=SFX_
+SET n1=1
+REM | Weapons
+REM | ----------------------------
+SET ax=Axe
+SET bw=Bow
+SET fi=Fists
+SET ha=Hammer
+SET ka=Katar
+SET la=Lance
+SET pi=Pistols
+SET sp=Spear
+SET sw=Sword
+
 GOTO %1
 
 REM +++++++++++++++++++++++
@@ -84,6 +110,74 @@ ECHO Text editor
 ECHo -----------
 ECHO Program: %editor%
 ECHO Location: %editloc%
+ECHO.
+ECHO Press any key to continue with variable testing
+PAUSE > NUL
+CLS
+ECHO The following will test the variables of
+ECHO sigscript.bat to ensure they output correctly.
+ECHO.
+ECHO Failure of the author to ensure they do will
+ECHO lead to installation failure, which is why
+ECHO this test is included.
+ECHO.
+ECHO Press any key to continue.
+PAUSE > NUL
+CLS
+ECHO File name suffixes
+ECHO ----------------------------
+ECHO %bk%
+ECHO %rp%
+ECHO %rb%
+ECHO.
+ECHO File purpose and other stuff
+ECHO ----------------------------
+ECHO %an%
+ECHO %fx%
+ECHO %n1%
+ECHO.
+ECHO Weapons
+ECHO ----------------------------
+ECHO %ax%
+ECHO %bw%
+ECHO %fi%
+ECHO %ha%
+ECHO %ka%
+ECHO %la%
+ECHO %pi%
+ECHO %sp%
+ECHO %sw%
+ECHO.
+ECHO Press any key to continue...
+PAUSE > NUL
+CLS
+ECHO The next set of tests will use the directory
+ECHO check command to find specific files.
+ECHO.
+ECHO If you see the following as symbolic links
+ECHO (<SYMLINK>), then this script had already
+ECHO been used to install rainbow sigs.
+ECHO.
+ECHO Press any key to continue.
+PAUSE > NUL
+CLS
+ECHO Dir command testing
+ECHO ----------------------------
+DIR %gamepath%\%an%%ax%.swf
+DIR %gamepath%\%an%%bw%.swf
+DIR %gamepath%\%an%%fi%.swf
+DIR %gamepath%\%an%%ha%.swf
+DIR %gamepath%\%an%%ka%.swf
+DIR %gamepath%\%an%%la%.swf
+DIR %gamepath%\%an%%pi%.swf
+DIR %gamepath%\%an%%sp%.swf
+DIR %gamepath%\%an%%sw%.swf
+DIR %gamepath%\%fx%%n1%.swf
+DIR %gamepath%\%fx%%fi%.swf
+DIR %gamepath%\%fx%%ha%.swf
+DIR %gamepath%\%fx%%sp%.swf
+DIR %gamepath%\%fx%%sw%.swf
+ECHO.
 ECHO Press any key to return at previous menu.
 PAUSE > NUL
 GOTO debug
@@ -129,7 +223,7 @@ REM |     DO NOT forget to increment date on each update.
 CLS
 COLOR 0A
 ECHO === Rainbow Sigs script ===
-ECHO == Revision 2.3 (080516) ==
+ECHO == Revision 2.4 (081816) ==
 ECHO.
 ECHO This script must be ran as administrator.
 ECHO.
@@ -201,8 +295,6 @@ ECHO Press any key to return at previous menu
 PAUSE > NUL
 GOTO intro3
 
-REM | !!! Remember, editloc needs backslash at
-REM |     the end, if you changed that SET argument.
 :edit
 CLS
 COLOR 0E
@@ -215,7 +307,7 @@ ECHO performs as intended.
 ECHO.
 ECHO Press any key to begin modifying startInstall.bat.
 PAUSE > NUL
-START %editloc%%editor% ./startInstall.bat
+START %editloc%\%editor% .\startInstall.bat
 EXIT
 
 REM | !!! The application menu.
@@ -320,7 +412,7 @@ ECHO The verification process should begin after you press
 ECHO any key. Else, edit startInstall.bat to replace
 ECHO whatever "steampath" refers to.
 ECHO.
-DEL /Q %gamepath%\backup_*
+DEL /Q %gamepath%\%bk%*
 %steampath%\steam.exe steam://validate/291550
 ECHO Do not proceed until validation is complete.
 ECHO If you are a user of Windows 8 or greater,
@@ -348,63 +440,63 @@ ECHO.
 ECHO Press any key to apply.
 PAUSE > NUL
 ECHO.
-REN %gamepath%\Animation_Axe.swf backup_Animation_Axe.swf
-REN %gamepath%\Animation_Bow.swf backup_Animation_Bow.swf
-REN %gamepath%\Animation_Fists.swf backup_Animation_Fists.swf
-REN %gamepath%\Animation_Hammer.swf backup_Animation_Hammer.swf
-REN %gamepath%\Animation_Katar.swf backup_Animation_Katar.swf
-REN %gamepath%\Animation_Lance.swf backup_Animation_Lance.swf
-REN %gamepath%\Animation_Pistols.swf backup_Animation_Pistols.swf
-REN %gamepath%\Animation_Spear.swf backup_Animation_Spear.swf
-REN %gamepath%\Animation_Sword.swf backup_Animation_Sword.swf
-REN %gamepath%\SFX_1.swf backup_SFX_1.swf
-REN %gamepath%\SFX_Fists.swf backup_SFX_Fists.swf
-REN %gamepath%\SFX_Hammer.swf backup_SFX_Hammer.swf
-REN %gamepath%\SFX_Spear.swf backup_SFX_Spear.swf
-REN %gamepath%\SFX_Sword.swf backup_SFX_Sword.swf
-COPY /Y %~dp0\Animation_Axe.swf %gamepath%\rainbow_Animation_Axe.swf
-COPY /Y %~dp0\Animation_Bow.swf %gamepath%\rainbow_Animation_Bow.swf
-COPY /Y %~dp0\Animation_Fists.swf %gamepath%\rainbow_Animation_Fists.swf
-COPY /Y %~dp0\Animation_Hammer.swf %gamepath%\rainbow_Animation_Hammer.swf
-COPY /Y %~dp0\Animation_Katar.swf %gamepath%\rainbow_Animation_Katar.swf
-COPY /Y %~dp0\Animation_Lance.swf %gamepath%\rainbow_Animation_Lance.swf
-COPY /Y %~dp0\Animation_Pistols.swf %gamepath%\rainbow_Animation_Pistols.swf
-COPY /Y %~dp0\Animation_Spear.swf %gamepath%\rainbow_Animation_Spear.swf
-COPY /Y %~dp0\Animation_Sword.swf %gamepath%\rainbow_Animation_Sword.swf
-COPY /Y %~dp0\SFX_1.swf %gamepath%\rainbow_SFX_1.swf
-COPY /Y %~dp0\SFX_Fists.swf %gamepath%\rainbow_SFX_Fists.swf
-COPY /Y %~dp0\SFX_Hammer.swf %gamepath%\rainbow_SFX_Hammer.swf
-COPY /Y %~dp0\SFX_Spear.swf %gamepath%\rainbow_SFX_Spear.swf
-COPY /Y %~dp0\SFX_Sword.swf %gamepath%\rainbow_SFX_Sword.swf
-MKLINK %gamepath%\replace_Animation_Axe.swf %gamepath%\rainbow_Animation_Axe.swf
-MKLINK %gamepath%\replace_Animation_Bow.swf %gamepath%\rainbow_Animation_Bow.swf
-MKLINK %gamepath%\replace_Animation_Fists.swf %gamepath%\rainbow_Animation_Fists.swf
-MKLINK %gamepath%\replace_Animation_Hammer.swf %gamepath%\rainbow_Animation_Hammer.swf
-MKLINK %gamepath%\replace_Animation_Katar.swf %gamepath%\rainbow_Animation_Katar.swf
-MKLINK %gamepath%\replace_Animation_Lance.swf %gamepath%\rainbow_Animation_Lance.swf
-MKLINK %gamepath%\replace_Animation_Pistols.swf %gamepath%\rainbow_Animation_Pistols.swf
-MKLINK %gamepath%\replace_Animation_Spear.swf %gamepath%\rainbow_Animation_Spear.swf
-MKLINK %gamepath%\replace_Animation_Sword.swf %gamepath%\rainbow_Animation_Sword.swf
-MKLINK %gamepath%\replace_SFX_1.swf %gamepath%\rainbow_SFX_1.swf
-MKLINK %gamepath%\replace_SFX_Fists.swf %gamepath%\rainbow_SFX_Fists.swf
-MKLINK %gamepath%\replace_SFX_Hammer.swf %gamepath%\rainbow_SFX_Hammer.swf
-MKLINK %gamepath%\replace_SFX_Spear.swf %gamepath%\rainbow_SFX_Spear.swf
-MKLINK %gamepath%\replace_SFX_Sword.swf %gamepath%\rainbow_SFX_Sword.swf
-COPY /L /Y %gamepath%\replace_Animation_Axe.swf %gamepath%\Animation_Axe.swf
-COPY /L /Y %gamepath%\replace_Animation_Bow.swf %gamepath%\Animation_Bow.swf
-COPY /L /Y %gamepath%\replace_Animation_Fists.swf %gamepath%\Animation_Fists.swf
-COPY /L /Y %gamepath%\replace_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
-COPY /L /Y %gamepath%\replace_Animation_Katar.swf %gamepath%\Animation_Katar.swf
-COPY /L /Y %gamepath%\replace_Animation_Lance.swf %gamepath%\Animation_Lance.swf
-COPY /L /Y %gamepath%\replace_Animation_Pistols.swf %gamepath%\Animation_Pistols.swf
-COPY /L /Y %gamepath%\replace_Animation_Spear.swf %gamepath%\Animation_Spear.swf
-COPY /L /Y %gamepath%\replace_Animation_Sword.swf %gamepath%\Animation_Sword.swf
-COPY /L /Y %gamepath%\replace_SFX_1.swf %gamepath%\SFX_1.swf
-COPY /L /Y %gamepath%\replace_SFX_Fists.swf %gamepath%\SFX_Fists.swf
-COPY /L /Y %gamepath%\replace_SFX_Hammer.swf %gamepath%\SFX_Hammer.swf
-COPY /L /Y %gamepath%\replace_SFX_Spear.swf %gamepath%\SFX_Spear.swf
-COPY /L /Y %gamepath%\replace_SFX_Sword.swf %gamepath%\SFX_Sword.swf
-DEL /Q %gamepath%\replace_*
+REN %gamepath%\%an%%ax%.swf %bk%%an%%ax%.swf
+REN %gamepath%\%an%%bw%.swf %bk%%an%%bw%.swf
+REN %gamepath%\%an%%fi%.swf %bk%%an%%fi%.swf
+REN %gamepath%\%an%%ha%.swf %bk%%an%%ha%.swf
+REN %gamepath%\%an%%ka%.swf %bk%%an%%ka%.swf
+REN %gamepath%\%an%%la%.swf %bk%%an%%la%.swf
+REN %gamepath%\%an%%pi%.swf %bk%%an%%pi%.swf
+REN %gamepath%\%an%%sp%.swf %bk%%an%%sp%.swf
+REN %gamepath%\%an%%sw%.swf %bk%%an%%sw%.swf
+REN %gamepath%\%fx%%n1%.swf %bk%%fx%%n1%.swf
+REN %gamepath%\%fx%%fi%.swf %bk%%fx%%fi%.swf
+REN %gamepath%\%fx%%ha%.swf %bk%%fx%%ha%.swf
+REN %gamepath%\%fx%%sp%.swf %bk%%fx%%sp%.swf
+REN %gamepath%\%fx%%sw%.swf %bk%%fx%%sw%.swf
+COPY /Y %~dp0\%an%%ax%.swf %gamepath%\%rb%%an%%ax%.swf
+COPY /Y %~dp0\%an%%bw%.swf %gamepath%\%rb%%an%%bw%.swf
+COPY /Y %~dp0\%an%%fi%.swf %gamepath%\%rb%%an%%fi%.swf
+COPY /Y %~dp0\%an%%ha%.swf %gamepath%\%rb%%an%%ha%.swf
+COPY /Y %~dp0\%an%%ka%.swf %gamepath%\%rb%%an%%ka%.swf
+COPY /Y %~dp0\%an%%la%.swf %gamepath%\%rb%%an%%la%.swf
+COPY /Y %~dp0\%an%%pi%.swf %gamepath%\%rb%%an%%pi%.swf
+COPY /Y %~dp0\%an%%sp%.swf %gamepath%\%rb%%an%%sp%.swf
+COPY /Y %~dp0\%an%%sw%.swf %gamepath%\%rb%%an%%sw%.swf
+COPY /Y %~dp0\%fx%%n1%.swf %gamepath%\%rb%%fx%%n1%.swf
+COPY /Y %~dp0\%fx%%fi%.swf %gamepath%\%rb%%fx%%fi%.swf
+COPY /Y %~dp0\%fx%%ha%.swf %gamepath%\%rb%%fx%%ha%.swf
+COPY /Y %~dp0\%fx%%sp%.swf %gamepath%\%rb%%fx%%sp%.swf
+COPY /Y %~dp0\%fx%%sw%.swf %gamepath%\%rb%%fx%%sw%.swf
+MKLINK %gamepath%\%rp%%an%%ax%.swf %gamepath%\%rb%%an%%ax%.swf
+MKLINK %gamepath%\%rp%%an%%bw%.swf %gamepath%\%rb%%an%%bw%.swf
+MKLINK %gamepath%\%rp%%an%%fi%.swf %gamepath%\%rb%%an%%fi%.swf
+MKLINK %gamepath%\%rp%%an%%ha%.swf %gamepath%\%rb%%an%%ha%.swf
+MKLINK %gamepath%\%rp%%an%%ka%.swf %gamepath%\%rb%%an%%ka%.swf
+MKLINK %gamepath%\%rp%%an%%la%.swf %gamepath%\%rb%%an%%la%.swf
+MKLINK %gamepath%\%rp%%an%%pi%.swf %gamepath%\%rb%%an%%pi%.swf
+MKLINK %gamepath%\%rp%%an%%sp%.swf %gamepath%\%rb%%an%%sp%.swf
+MKLINK %gamepath%\%rp%%an%%sw%.swf %gamepath%\%rb%%an%%sw%.swf
+MKLINK %gamepath%\%rp%%fx%%n1%.swf %gamepath%\%rb%%fx%%n1%.swf
+MKLINK %gamepath%\%rp%%fx%%fi%.swf %gamepath%\%rb%%fx%%fi%.swf
+MKLINK %gamepath%\%rp%%fx%%ha%.swf %gamepath%\%rb%%fx%%ha%.swf
+MKLINK %gamepath%\%rp%%fx%%sp%.swf %gamepath%\%rb%%fx%%sp%.swf
+MKLINK %gamepath%\%rp%%fx%%sw%.swf %gamepath%\%rb%%fx%%sw%.swf
+COPY /L /Y %gamepath%\%rp%%an%%ax%.swf %gamepath%\%an%%ax%.swf
+COPY /L /Y %gamepath%\%rp%%an%%bw%.swf %gamepath%\%an%%bw%.swf
+COPY /L /Y %gamepath%\%rp%%an%%fi%.swf %gamepath%\%an%%fi%.swf
+COPY /L /Y %gamepath%\%rp%%an%%ha%.swf %gamepath%\%an%%ha%.swf
+COPY /L /Y %gamepath%\%rp%%an%%ka%.swf %gamepath%\%an%%ka%.swf
+COPY /L /Y %gamepath%\%rp%%an%%la%.swf %gamepath%\%an%%la%.swf
+COPY /L /Y %gamepath%\%rp%%an%%pi%.swf %gamepath%\%an%%pi%.swf
+COPY /L /Y %gamepath%\%rp%%an%%sp%.swf %gamepath%\%an%%sp%.swf
+COPY /L /Y %gamepath%\%rp%%an%%sw%.swf %gamepath%\%an%%sw%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%n1%.swf %gamepath%\%fx%%n1%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%fi%.swf %gamepath%\%fx%%fi%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%ha%.swf %gamepath%\%fx%%ha%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%sp%.swf %gamepath%\%fx%%sp%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%sw%.swf %gamepath%\%fx%%sw%.swf
+DEL /Q %gamepath%\%rp%*
 ECHO.
 ECHO Application complete.
 ECHO Press any key to continue.
@@ -474,7 +566,7 @@ CLS
 ECHO The verification process should begin now.
 ECHO After, this modification will be removed.
 ECHO.
-DEL /Q %gamepath%\backup_* %gamepath%\rainbow_*
+DEL /Q %gamepath%\%bk%* %gamepath%\%rb%*
 %steampath%\steam.exe steam://validate/291550
 ECHO Do not proceed until validation is complete.
 ECHO When it is done, press any key to continue.
@@ -486,22 +578,22 @@ REM |     to the internet isn't possible.
 :offres
 REM | !!! Line below included because the whole
 REM |     symlink thing was being weird.
-DEL /Q %gamepath%\Animation_Axe.swf %gamepath%\Animation_Bow.swf %gamepath%\Animation_Hammer.swf %gamepath%\Animation_Katar.swf %gamepath%\Animation_Lance.swf %gamepath%\Animation_Pistols.swf %gamepath%\Animation_Spear.swf %gamepath%\Animation_Sword.swf %gamepath%\SFX_1.swf %gamepath%\SFX_Hammer.swf %gamepath%\SFX_Sword.swf
-COPY /Y %gamepath%\backup_Animation_Axe.swf %gamepath%\Animation_Axe.swf
-COPY /Y %gamepath%\backup_Animation_Bow.swf %gamepath%\Animation_Bow.swf
-COPY /Y %gamepath%\backup_Animation_Fists.swf %gamepath%\Animation_Fists.swf
-COPY /Y %gamepath%\backup_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
-COPY /Y %gamepath%\backup_Animation_Katar.swf %gamepath%\Animation_Katar.swf
-COPY /Y %gamepath%\backup_Animation_Lance.swf %gamepath%\Animation_Lance.swf
-COPY /Y %gamepath%\backup_Animation_Pistols.swf %gamepath%\Animation_Pistols.swf
-COPY /Y %gamepath%\backup_Animation_Spear.swf %gamepath%\Animation_Spear.swf
-COPY /Y %gamepath%\backup_Animation_Sword.swf %gamepath%\Animation_Sword.swf
-COPY /Y %gamepath%\backup_SFX_1.swf %gamepath%\SFX_1.swf
-COPY /Y %gamepath%\backup_SFX_Fists.swf %gamepath%\SFX_Fists.swf
-COPY /Y %gamepath%\backup_SFX_Hammer.swf %gamepath%\SFX_Hammer.swf
-COPY /Y %gamepath%\backup_SFX_Spear.swf %gamepath%\SFX_Spear.swf
-COPY /Y %gamepath%\backup_SFX_Sword.swf %gamepath%\SFX_Sword.swf
-DEL /Q %gamepath%\backup_* %gamepath%\rainbow_*
+DEL /Q %gamepath%\%an%%ax%.swf %gamepath%\%an%%bw%.swf %gamepath%\%an%%ha%.swf %gamepath%\%an%%ka%.swf %gamepath%\%an%%la%.swf %gamepath%\%an%%pi%.swf %gamepath%\%an%%sp%.swf %gamepath%\%an%%sw%.swf %gamepath%\%fx%%n1%.swf %gamepath%\%fx%%ha%.swf %gamepath%\%fx%%sw%.swf
+COPY /Y %gamepath%\%bk%%an%%ax%.swf %gamepath%\%an%%ax%.swf
+COPY /Y %gamepath%\%bk%%an%%bw%.swf %gamepath%\%an%%bw%.swf
+COPY /Y %gamepath%\%bk%%an%%fi%.swf %gamepath%\%an%%fi%.swf
+COPY /Y %gamepath%\%bk%%an%%ha%.swf %gamepath%\%an%%ha%.swf
+COPY /Y %gamepath%\%bk%%an%%ka%.swf %gamepath%\%an%%ka%.swf
+COPY /Y %gamepath%\%bk%%an%%la%.swf %gamepath%\%an%%la%.swf
+COPY /Y %gamepath%\%bk%%an%%pi%.swf %gamepath%\%an%%pi%.swf
+COPY /Y %gamepath%\%bk%%an%%sp%.swf %gamepath%\%an%%sp%.swf
+COPY /Y %gamepath%\%bk%%an%%sw%.swf %gamepath%\%an%%sw%.swf
+COPY /Y %gamepath%\%bk%%fx%%n1%.swf %gamepath%\%fx%%n1%.swf
+COPY /Y %gamepath%\%bk%%fx%%fi%.swf %gamepath%\%fx%%fi%.swf
+COPY /Y %gamepath%\%bk%%fx%%ha%.swf %gamepath%\%fx%%ha%.swf
+COPY /Y %gamepath%\%bk%%fx%%sp%.swf %gamepath%\%fx%%sp%.swf
+COPY /Y %gamepath%\%bk%%fx%%sw%.swf %gamepath%\%fx%%sw%.swf
+DEL /Q %gamepath%\%bk%* %gamepath%\%rb%*
 ECHO.
 GOTO postres
 
@@ -586,35 +678,35 @@ ECHO -------------------------------------------------
 ECHO.
 ECHO Press any key to use rainbow signatures.
 PAUSE > NUL
-MKLINK %gamepath%\replace_Animation_Axe.swf %gamepath%\rainbow_Animation_Axe.swf
-MKLINK %gamepath%\replace_Animation_Bow.swf %gamepath%\rainbow_Animation_Bow.swf
-MKLINK %gamepath%\replace_Animation_Fists.swf %gamepath%\rainbow_Animation_Fists.swf
-MKLINK %gamepath%\replace_Animation_Hammer.swf %gamepath%\rainbow_Animation_Hammer.swf
-MKLINK %gamepath%\replace_Animation_Katar.swf %gamepath%\rainbow_Animation_Katar.swf
-MKLINK %gamepath%\replace_Animation_Lance.swf %gamepath%\rainbow_Animation_Lance.swf
-MKLINK %gamepath%\replace_Animation_Pistols.swf %gamepath%\rainbow_Animation_Pistols.swf
-MKLINK %gamepath%\replace_Animation_Spear.swf %gamepath%\rainbow_Animation_Spear.swf
-MKLINK %gamepath%\replace_Animation_Sword.swf %gamepath%\rainbow_Animation_Sword.swf
-MKLINK %gamepath%\replace_SFX_1.swf %gamepath%\rainbow_SFX_1.swf
-MKLINK %gamepath%\replace_SFX_Fists.swf %gamepath%\rainbow_SFX_Fists.swf
-MKLINK %gamepath%\replace_SFX_Hammer.swf %gamepath%\rainbow_SFX_Hammer.swf
-MKLINK %gamepath%\replace_SFX_Spear.swf %gamepath%\rainbow_SFX_Spear.swf
-MKLINK %gamepath%\replace_SFX_Sword.swf %gamepath%\rainbow_SFX_Sword.swf
-COPY /L /Y %gamepath%\replace_Animation_Axe.swf %gamepath%\Animation_Axe.swf
-COPY /L /Y %gamepath%\replace_Animation_Bow.swf %gamepath%\Animation_Bow.swf
-COPY /L /Y %gamepath%\replace_Animation_Fists.swf %gamepath%\Animation_Fists.swf
-COPY /L /Y %gamepath%\replace_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
-COPY /L /Y %gamepath%\replace_Animation_Katar.swf %gamepath%\Animation_Katar.swf
-COPY /L /Y %gamepath%\replace_Animation_Lance.swf %gamepath%\Animation_Lance.swf
-COPY /L /Y %gamepath%\replace_Animation_Pistols.swf %gamepath%\Animation_Pistols.swf
-COPY /L /Y %gamepath%\replace_Animation_Spear.swf %gamepath%\Animation_Spear.swf
-COPY /L /Y %gamepath%\replace_Animation_Sword.swf %gamepath%\Animation_Sword.swf
-COPY /L /Y %gamepath%\replace_SFX_1.swf %gamepath%\SFX_1.swf
-COPY /L /Y %gamepath%\replace_SFX_Fists.swf %gamepath%\SFX_Fists.swf
-COPY /L /Y %gamepath%\replace_SFX_Hammer.swf %gamepath%\SFX_Hammer.swf
-COPY /L /Y %gamepath%\replace_SFX_Spear.swf %gamepath%\SFX_Spear.swf
-COPY /L /Y %gamepath%\replace_SFX_Sword.swf %gamepath%\SFX_Sword.swf
-DEL %gamepath%\replace_*
+MKLINK %gamepath%\%rp%%an%%ax%.swf %gamepath%\%rb%%an%%ax%.swf
+MKLINK %gamepath%\%rp%%an%%bw%.swf %gamepath%\%rb%%an%%bw%.swf
+MKLINK %gamepath%\%rp%%an%%fi%.swf %gamepath%\%rb%%an%%fi%.swf
+MKLINK %gamepath%\%rp%%an%%ha%.swf %gamepath%\%rb%%an%%ha%.swf
+MKLINK %gamepath%\%rp%%an%%ka%.swf %gamepath%\%rb%%an%%ka%.swf
+MKLINK %gamepath%\%rp%%an%%la%.swf %gamepath%\%rb%%an%%la%.swf
+MKLINK %gamepath%\%rp%%an%%pi%.swf %gamepath%\%rb%%an%%pi%.swf
+MKLINK %gamepath%\%rp%%an%%sp%.swf %gamepath%\%rb%%an%%sp%.swf
+MKLINK %gamepath%\%rp%%an%%sw%.swf %gamepath%\%rb%%an%%sw%.swf
+MKLINK %gamepath%\%rp%%fx%%n1%.swf %gamepath%\%rb%%fx%%n1%.swf
+MKLINK %gamepath%\%rp%%fx%%fi%.swf %gamepath%\%rb%%fx%%fi%.swf
+MKLINK %gamepath%\%rp%%fx%%ha%.swf %gamepath%\%rb%%fx%%ha%.swf
+MKLINK %gamepath%\%rp%%fx%%sp%.swf %gamepath%\%rb%%fx%%sp%.swf
+MKLINK %gamepath%\%rp%%fx%%sw%.swf %gamepath%\%rb%%fx%%sw%.swf
+COPY /L /Y %gamepath%\%rp%%an%%ax%.swf %gamepath%\%an%%ax%.swf
+COPY /L /Y %gamepath%\%rp%%an%%bw%.swf %gamepath%\%an%%bw%.swf
+COPY /L /Y %gamepath%\%rp%%an%%fi%.swf %gamepath%\%an%%fi%.swf
+COPY /L /Y %gamepath%\%rp%%an%%ha%.swf %gamepath%\%an%%ha%.swf
+COPY /L /Y %gamepath%\%rp%%an%%ka%.swf %gamepath%\%an%%ka%.swf
+COPY /L /Y %gamepath%\%rp%%an%%la%.swf %gamepath%\%an%%la%.swf
+COPY /L /Y %gamepath%\%rp%%an%%pi%.swf %gamepath%\%an%%pi%.swf
+COPY /L /Y %gamepath%\%rp%%an%%sp%.swf %gamepath%\%an%%sp%.swf
+COPY /L /Y %gamepath%\%rp%%an%%sw%.swf %gamepath%\%an%%sw%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%n1%.swf %gamepath%\%fx%%n1%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%fi%.swf %gamepath%\%fx%%fi%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%ha%.swf %gamepath%\%fx%%ha%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%sp%.swf %gamepath%\%fx%%sp%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%sw%.swf %gamepath%\%fx%%sw%.swf
+DEL %gamepath%\%rp%*
 ECHO.
 ECHO Changes applied.
 ECHO Press any key to continue.
@@ -646,35 +738,35 @@ ECHO -------------------------------------------------
 ECHO.
 ECHO Press any key to use default signatures.
 PAUSE > NUL
-MKLINK %gamepath%\replace_Animation_Axe.swf %gamepath%\backup_Animation_Axe.swf
-MKLINK %gamepath%\replace_Animation_Bow.swf %gamepath%\backup_Animation_Bow.swf
-MKLINK %gamepath%\replace_Animation_Fists.swf %gamepath%\backup_Animation_Fists.swf
-MKLINK %gamepath%\replace_Animation_Hammer.swf %gamepath%\backup_Animation_Hammer.swf
-MKLINK %gamepath%\replace_Animation_Katar.swf %gamepath%\backup_Animation_Katar.swf
-MKLINK %gamepath%\replace_Animation_Lance.swf %gamepath%\backup_Animation_Lance.swf
-MKLINK %gamepath%\replace_Animation_Pistols.swf %gamepath%\backup_Animation_Pistols.swf
-MKLINK %gamepath%\replace_Animation_Spear.swf %gamepath%\backup_Animation_Spear.swf
-MKLINK %gamepath%\replace_Animation_Sword.swf %gamepath%\backup_Animation_Sword.swf
-MKLINK %gamepath%\replace_SFX_1.swf %gamepath%\backup_SFX_1.swf
-MKLINK %gamepath%\replace_SFX_Fists.swf %gamepath%\backup_SFX_Fists.swf
-MKLINK %gamepath%\replace_SFX_Hammer.swf %gamepath%\backup_SFX_Hammer.swf
-MKLINK %gamepath%\replace_SFX_Spear.swf %gamepath%\backup_SFX_Spear.swf
-MKLINK %gamepath%\replace_SFX_Sword.swf %gamepath%\backup_SFX_Sword.swf
-COPY /L /Y %gamepath%\replace_Animation_Axe.swf %gamepath%\Animation_Axe.swf
-COPY /L /Y %gamepath%\replace_Animation_Bow.swf %gamepath%\Animation_Bow.swf
-COPY /L /Y %gamepath%\replace_Animation_Fists.swf %gamepath%\Animation_Fists.swf
-COPY /L /Y %gamepath%\replace_Animation_Hammer.swf %gamepath%\Animation_Hammer.swf
-COPY /L /Y %gamepath%\replace_Animation_Katar.swf %gamepath%\Animation_Katar.swf
-COPY /L /Y %gamepath%\replace_Animation_Lance.swf %gamepath%\Animation_Lance.swf
-COPY /L /Y %gamepath%\replace_Animation_Pistols.swf %gamepath%\Animation_Pistols.swf
-COPY /L /Y %gamepath%\replace_Animation_Spear.swf %gamepath%\Animation_Spear.swf
-COPY /L /Y %gamepath%\replace_Animation_Sword.swf %gamepath%\Animation_Sword.swf
-COPY /L /Y %gamepath%\replace_SFX_1.swf %gamepath%\SFX_1.swf
-COPY /L /Y %gamepath%\replace_SFX_Fists.swf %gamepath%\SFX_Fists.swf
-COPY /L /Y %gamepath%\replace_SFX_Hammer.swf %gamepath%\SFX_Hammer.swf
-COPY /L /Y %gamepath%\replace_SFX_Spear.swf %gamepath%\SFX_Spear.swf
-COPY /L /Y %gamepath%\replace_SFX_Sword.swf %gamepath%\SFX_Sword.swf
-DEL %gamepath%\replace_*
+MKLINK %gamepath%\%rp%%an%%ax%.swf %gamepath%\%bk%%an%%ax%.swf
+MKLINK %gamepath%\%rp%%an%%bw%.swf %gamepath%\%bk%%an%%bw%.swf
+MKLINK %gamepath%\%rp%%an%%fi%.swf %gamepath%\%bk%%an%%fi%.swf
+MKLINK %gamepath%\%rp%%an%%ha%.swf %gamepath%\%bk%%an%%ha%.swf
+MKLINK %gamepath%\%rp%%an%%ka%.swf %gamepath%\%bk%%an%%ka%.swf
+MKLINK %gamepath%\%rp%%an%%la%.swf %gamepath%\%bk%%an%%la%.swf
+MKLINK %gamepath%\%rp%%an%%pi%.swf %gamepath%\%bk%%an%%pi%.swf
+MKLINK %gamepath%\%rp%%an%%sp%.swf %gamepath%\%bk%%an%%sp%.swf
+MKLINK %gamepath%\%rp%%an%%sw%.swf %gamepath%\%bk%%an%%sw%.swf
+MKLINK %gamepath%\%rp%%fx%%n1%.swf %gamepath%\%bk%%fx%%n1%.swf
+MKLINK %gamepath%\%rp%%fx%%fi%.swf %gamepath%\%bk%%fx%%fi%.swf
+MKLINK %gamepath%\%rp%%fx%%ha%.swf %gamepath%\%bk%%fx%%ha%.swf
+MKLINK %gamepath%\%rp%%fx%%sp%.swf %gamepath%\%bk%%fx%%sp%.swf
+MKLINK %gamepath%\%rp%%fx%%sw%.swf %gamepath%\%bk%%fx%%sw%.swf
+COPY /L /Y %gamepath%\%rp%%an%%ax%.swf %gamepath%\%an%%ax%.swf
+COPY /L /Y %gamepath%\%rp%%an%%bw%.swf %gamepath%\%an%%bw%.swf
+COPY /L /Y %gamepath%\%rp%%an%%fi%.swf %gamepath%\%an%%fi%.swf
+COPY /L /Y %gamepath%\%rp%%an%%ha%.swf %gamepath%\%an%%ha%.swf
+COPY /L /Y %gamepath%\%rp%%an%%ka%.swf %gamepath%\%an%%ka%.swf
+COPY /L /Y %gamepath%\%rp%%an%%la%.swf %gamepath%\%an%%la%.swf
+COPY /L /Y %gamepath%\%rp%%an%%pi%.swf %gamepath%\%an%%pi%.swf
+COPY /L /Y %gamepath%\%rp%%an%%sp%.swf %gamepath%\%an%%sp%.swf
+COPY /L /Y %gamepath%\%rp%%an%%sw%.swf %gamepath%\%an%%sw%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%n1%.swf %gamepath%\%fx%%n1%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%fi%.swf %gamepath%\%fx%%fi%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%ha%.swf %gamepath%\%fx%%ha%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%sp%.swf %gamepath%\%fx%%sp%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%sw%.swf %gamepath%\%fx%%sw%.swf
+DEL %gamepath%\%rp%*
 ECHO.
 ECHO Changes applied.
 ECHO Press any key to continue.

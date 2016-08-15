@@ -15,7 +15,7 @@ REM Local variable settings
 REM -----------------------
 SET steampath=c:\progra~2\steam
 SET gamepath=%steampath%\steamapps\common\brawlhalla
-SET editloc=%systemroot%\
+SET editloc=%systemroot%
 SET editor=notepad.exe
 
 REM | !!! It may be a good idea to keep a copy of this file
@@ -58,7 +58,6 @@ REM |
 REM | It is not necessary to redefine this if you can run
 REM | the editor within cmd from its executable name only.
 REM |
-REM | MUST END WITH A BACKSLASH.
 REM | DEFAULT: %systemroot%\
 REM |
 REM | editor
