@@ -2,12 +2,13 @@
 
 REM | Made with love by Brandon Bachman
 REM | Discord: "NJVS | Bad Minotaur"
+SET rev=Revision 2.5 (090216)
 
 REM +++++++++++++++++++++++++++++++++++++++
 REM + Things to make stuff easier for me. +
 REM + This script relies on these labels. +
 REM +++++++++++++++++++++++++++++++++++++++
-REM | File name suffixes
+REM | File name prefixes
 REM | ----------------------------
 SET bk=Backup_
 SET rp=Replace_
@@ -124,7 +125,7 @@ ECHO.
 ECHO Press any key to continue.
 PAUSE > NUL
 CLS
-ECHO File name suffixes
+ECHO File name prefixes
 ECHO ----------------------------
 ECHO %bk%
 ECHO %rp%
@@ -155,7 +156,7 @@ ECHO The next set of tests will use the directory
 ECHO check command to find specific files.
 ECHO.
 ECHO If you see the following as symbolic links
-ECHO (<SYMLINK>), then this script had already
+ECHO (SYMLINK), then this script had already
 ECHO been used to install rainbow sigs.
 ECHO.
 ECHO Press any key to continue.
@@ -223,7 +224,7 @@ REM |     DO NOT forget to increment date on each update.
 CLS
 COLOR 0A
 ECHO === Rainbow Sigs script ===
-ECHO == Revision 2.4 (081816) ==
+ECHO == %rev% ==
 ECHO.
 ECHO This script must be ran as administrator.
 ECHO.
