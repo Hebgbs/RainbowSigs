@@ -289,9 +289,8 @@ ECHO.
 ECHO Option 2: Proceeds with this script's intended purpose,
 ECHO to replace all stock sigs with rainbow-coloured ones. 
 ECHO.
-ECHO This script contains no malicious code if downloaded
-ECHO from either of its official sources:
-ECHO https://pc.cd/WNtctalK
+ECHO This script contains no malicious code
+ECHO if downloaded from its official source:
 ECHO https://github.com/Hebgbs/RainbowSigs
 ECHO.
 ECHO Press any key to return at previous menu
