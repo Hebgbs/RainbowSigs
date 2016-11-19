@@ -12,7 +12,7 @@ This mirror is provided as a service to the Brawlhalla community for ease of ins
 See file "How to batch.txt" for specific information about that.
 
 ###MODIFICATION INFO
-Last update was downloaded on 10/15/2016
-By 10/19/16 this set will become outdated and you'll need to download it again from the original source or when this mirror is updated.
+See `READ ME.txt` for information about updates.
+Date is also in the revision number when `startInstall.bat` is executed.
 
 I will announce updates @ https://discord.gg/0f8NrHSFtWCwFeLJ

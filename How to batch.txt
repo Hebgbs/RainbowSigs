@@ -44,7 +44,7 @@ SET gamepath=%steampath%\steamapps\common\brawlhalla
 
 %steampath% needs to be defined for the validate and run functions to work, since this is used for both pre-installation (to force use of a fresh set of original files) and removal, as well to run the game after mod installation.
 
-sigscript.bat uses a combination of symbolic links and local variables to facilitate the duplication and use of the rainbow signatures. Since everybody's system is different, I've made it so users have to define their own paths in startInstall.bat.
+sigscript.bat uses a combination of symbolic links and local variables to facilitate the duplication and use of the rainbow signatures. Since everybody's system is different, you may need to edit startInstall.bat so you can use this script with different directories.
 
 === Details about sigscript.bat actions ===
 :debug

@@ -2,7 +2,7 @@
 
 REM | Made with love by Brandon Bachman
 REM | Discord: "NJVS | Bad Minotaur"
-SET rev=Revision 2.8 (101516)
+SET rev=Revision 3.0 (111916)
 
 REM +++++++++++++++++++++++++++++++++++++++
 REM + Things to make stuff easier for me. +
@@ -29,6 +29,11 @@ SET la=Lance
 SET pi=Pistols
 SET sp=Spear
 SET sw=Sword
+REM | Phrases
+REM | ----------------------------
+set ph1=Dir command testing
+SET ph2=Directory output for
+SET ph3=------------------------------
 
 GOTO %1
 
@@ -162,8 +167,10 @@ ECHO.
 ECHO Press any key to continue.
 PAUSE > NUL
 CLS
-ECHO Dir command testing
-ECHO ----------------------------
+ECHO %ph1%
+ECHO %ph3%
+ECHO %ph2% weapons
+ECHO %ph3%
 DIR %gamepath%\%an%%ax%.swf
 DIR %gamepath%\%an%%bw%.swf
 DIR %gamepath%\%an%%fi%.swf
@@ -173,13 +180,23 @@ DIR %gamepath%\%an%%la%.swf
 DIR %gamepath%\%an%%pi%.swf
 DIR %gamepath%\%an%%sp%.swf
 DIR %gamepath%\%an%%sw%.swf
+ECHO.
+ECHO Press any key to continue...
+PAUSE > NUL
+CLS
+ECHO %ph1%
+ECHO %ph3%
+ECHO %ph2% animations
+ECHO %ph3%
 DIR %gamepath%\%fx%%n1%.swf
+DIR %gamepath%\%fx%%ax%.swf
+DIR %gamepath%\%fx%%bw%.swf
 DIR %gamepath%\%fx%%fi%.swf
 DIR %gamepath%\%fx%%ha%.swf
+DIR %gamepath%\%fx%%la%.swf
+DIR %gamepath%\%fx%%pi%.swf
 DIR %gamepath%\%fx%%sp%.swf
 DIR %gamepath%\%fx%%sw%.swf
-DIR %gamepath%\%fx%%ax%.swf
-DIR %gamepath%\%fx%%ka%.swf
 ECHO.
 ECHO Press any key to return at previous menu.
 PAUSE > NUL
@@ -458,6 +475,8 @@ REN %gamepath%\%fx%%sp%.swf %bk%%fx%%sp%.swf
 REN %gamepath%\%fx%%sw%.swf %bk%%fx%%sw%.swf
 REN %gamepath%\%fx%%ax%.swf %bk%%fx%%ax%.swf
 REN %gamepath%\%fx%%ka%.swf %bk%%fx%%ka%.swf
+REN %gamepath%\%fx%%bw%.swf %bk%%fx%%bw%.swf
+REN %gamepath%\%fx%%bw%.swf %bk%%fx%%pi%.swf
 COPY /Y %~dp0\%an%%ax%.swf %gamepath%\%rb%%an%%ax%.swf
 COPY /Y %~dp0\%an%%bw%.swf %gamepath%\%rb%%an%%bw%.swf
 COPY /Y %~dp0\%an%%fi%.swf %gamepath%\%rb%%an%%fi%.swf
@@ -474,6 +493,8 @@ COPY /Y %~dp0\%fx%%sp%.swf %gamepath%\%rb%%fx%%sp%.swf
 COPY /Y %~dp0\%fx%%sw%.swf %gamepath%\%rb%%fx%%sw%.swf
 COPY /Y %~dp0\%fx%%ax%.swf %gamepath%\%rb%%fx%%ax%.swf
 COPY /Y %~dp0\%fx%%ka%.swf %gamepath%\%rb%%fx%%ka%.swf
+COPY /Y %~dp0\%fx%%bw%.swf %gamepath%\%rb%%fx%%bw%.swf
+COPY /Y %~dp0\%fx%%pi%.swf %gamepath%\%rb%%fx%%pi%.swf
 MKLINK %gamepath%\%rp%%an%%ax%.swf %gamepath%\%rb%%an%%ax%.swf
 MKLINK %gamepath%\%rp%%an%%bw%.swf %gamepath%\%rb%%an%%bw%.swf
 MKLINK %gamepath%\%rp%%an%%fi%.swf %gamepath%\%rb%%an%%fi%.swf
@@ -490,6 +511,8 @@ MKLINK %gamepath%\%rp%%fx%%sp%.swf %gamepath%\%rb%%fx%%sp%.swf
 MKLINK %gamepath%\%rp%%fx%%sw%.swf %gamepath%\%rb%%fx%%sw%.swf
 MKLINK %gamepath%\%rp%%fx%%ax%.swf %gamepath%\%rb%%fx%%ax%.swf
 MKLINK %gamepath%\%rp%%fx%%ka%.swf %gamepath%\%rb%%fx%%ka%.swf
+MKLINK %gamepath%\%rp%%fx%%bw%.swf %gamepath%\%rb%%fx%%bw%.swf
+MKLINK %gamepath%\%rp%%fx%%pi%.swf %gamepath%\%rb%%fx%%pi%.swf
 COPY /L /Y %gamepath%\%rp%%an%%ax%.swf %gamepath%\%an%%ax%.swf
 COPY /L /Y %gamepath%\%rp%%an%%bw%.swf %gamepath%\%an%%bw%.swf
 COPY /L /Y %gamepath%\%rp%%an%%fi%.swf %gamepath%\%an%%fi%.swf
@@ -506,6 +529,8 @@ COPY /L /Y %gamepath%\%rp%%fx%%sp%.swf %gamepath%\%fx%%sp%.swf
 COPY /L /Y %gamepath%\%rp%%fx%%sw%.swf %gamepath%\%fx%%sw%.swf
 COPY /L /Y %gamepath%\%rp%%fx%%ax%.swf %gamepath%\%fx%%ax%.swf
 COPY /L /Y %gamepath%\%rp%%fx%%ka%.swf %gamepath%\%fx%%ka%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%bw%.swf %gamepath%\%fx%%bw%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%pi%.swf %gamepath%\%fx%%pi%.swf
 DEL /Q %gamepath%\%rp%*
 ECHO.
 ECHO Application complete.
@@ -588,7 +613,7 @@ REM |     to the internet isn't possible.
 :offres
 REM | !!! Line below included because the whole
 REM |     symlink thing was being weird.
-DEL /Q %gamepath%\%an%%ax%.swf %gamepath%\%an%%bw%.swf %gamepath%\%an%%ha%.swf %gamepath%\%an%%ka%.swf %gamepath%\%an%%la%.swf %gamepath%\%an%%pi%.swf %gamepath%\%an%%sp%.swf %gamepath%\%an%%sw%.swf %gamepath%\%fx%%n1%.swf %gamepath%\%fx%%ha%.swf %gamepath%\%fx%%sw%.swf %gamepath%\%fx%%ax%.swf %gamepath%\%fx%%ka%.swf
+DEL /Q %gamepath%\%an%%ax%.swf %gamepath%\%an%%bw%.swf %gamepath%\%an%%ha%.swf %gamepath%\%an%%ka%.swf %gamepath%\%an%%la%.swf %gamepath%\%an%%pi%.swf %gamepath%\%an%%sp%.swf %gamepath%\%an%%sw%.swf %gamepath%\%fx%%n1%.swf %gamepath%\%fx%%ha%.swf %gamepath%\%fx%%sw%.swf %gamepath%\%fx%%ax%.swf %gamepath%\%fx%%ka%.swf %gamepath%\%fx%%bw%.swf %gamepath%\%fx%%pi%.swf
 COPY /Y %gamepath%\%bk%%an%%ax%.swf %gamepath%\%an%%ax%.swf
 COPY /Y %gamepath%\%bk%%an%%bw%.swf %gamepath%\%an%%bw%.swf
 COPY /Y %gamepath%\%bk%%an%%fi%.swf %gamepath%\%an%%fi%.swf
@@ -605,6 +630,8 @@ COPY /Y %gamepath%\%bk%%fx%%sp%.swf %gamepath%\%fx%%sp%.swf
 COPY /Y %gamepath%\%bk%%fx%%sw%.swf %gamepath%\%fx%%sw%.swf
 COPY /Y %gamepath%\%bk%%fx%%ax%.swf %gamepath%\%fx%%ax%.swf
 COPY /Y %gamepath%\%bk%%fx%%ka%.swf %gamepath%\%fx%%ka%.swf
+COPY /Y %gamepath%\%bk%%fx%%bw%.swf %gamepath%\%fx%%bw%.swf
+COPY /Y %gamepath%\%bk%%fx%%pi%.swf %gamepath%\%fx%%pi%.swf
 DEL /Q %gamepath%\%bk%* %gamepath%\%rb%*
 ECHO.
 GOTO postres
@@ -706,6 +733,8 @@ MKLINK %gamepath%\%rp%%fx%%sp%.swf %gamepath%\%rb%%fx%%sp%.swf
 MKLINK %gamepath%\%rp%%fx%%sw%.swf %gamepath%\%rb%%fx%%sw%.swf
 MKLINK %gamepath%\%rp%%fx%%ax%.swf %gamepath%\%rb%%fx%%ax%.swf
 MKLINK %gamepath%\%rp%%fx%%ka%.swf %gamepath%\%rb%%fx%%ka%.swf
+MKLINK %gamepath%\%rp%%fx%%bw%.swf %gamepath%\%rb%%fx%%bw%.swf
+MKLINK %gamepath%\%rp%%fx%%pi%.swf %gamepath%\%rb%%fx%%pi%.swf
 COPY /L /Y %gamepath%\%rp%%an%%ax%.swf %gamepath%\%an%%ax%.swf
 COPY /L /Y %gamepath%\%rp%%an%%bw%.swf %gamepath%\%an%%bw%.swf
 COPY /L /Y %gamepath%\%rp%%an%%fi%.swf %gamepath%\%an%%fi%.swf
@@ -722,6 +751,8 @@ COPY /L /Y %gamepath%\%rp%%fx%%sp%.swf %gamepath%\%fx%%sp%.swf
 COPY /L /Y %gamepath%\%rp%%fx%%sw%.swf %gamepath%\%fx%%sw%.swf
 COPY /L /Y %gamepath%\%rp%%fx%%ax%.swf %gamepath%\%fx%%ax%.swf
 COPY /L /Y %gamepath%\%rp%%fx%%ka%.swf %gamepath%\%fx%%ka%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%bw%.swf %gamepath%\%fx%%bw%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%pi%.swf %gamepath%\%fx%%pi%.swf
 DEL %gamepath%\%rp%*
 ECHO.
 ECHO Changes applied.
@@ -770,6 +801,8 @@ MKLINK %gamepath%\%rp%%fx%%sp%.swf %gamepath%\%bk%%fx%%sp%.swf
 MKLINK %gamepath%\%rp%%fx%%sw%.swf %gamepath%\%bk%%fx%%sw%.swf
 MKLINK %gamepath%\%rp%%fx%%ax%.swf %gamepath%\%bk%%fx%%ax%.swf
 MKLINK %gamepath%\%rp%%fx%%ka%.swf %gamepath%\%bk%%fx%%ka%.swf
+MKLINK %gamepath%\%rp%%fx%%bw%.swf %gamepath%\%bk%%fx%%bw%.swf
+MKLINK %gamepath%\%rp%%fx%%pi%.swf %gamepath%\%bk%%fx%%pi%.swf
 COPY /L /Y %gamepath%\%rp%%an%%ax%.swf %gamepath%\%an%%ax%.swf
 COPY /L /Y %gamepath%\%rp%%an%%bw%.swf %gamepath%\%an%%bw%.swf
 COPY /L /Y %gamepath%\%rp%%an%%fi%.swf %gamepath%\%an%%fi%.swf
@@ -786,6 +819,8 @@ COPY /L /Y %gamepath%\%rp%%fx%%sp%.swf %gamepath%\%fx%%sp%.swf
 COPY /L /Y %gamepath%\%rp%%fx%%sw%.swf %gamepath%\%fx%%sw%.swf
 COPY /L /Y %gamepath%\%rp%%fx%%ax%.swf %gamepath%\%fx%%ax%.swf
 COPY /L /Y %gamepath%\%rp%%fx%%ka%.swf %gamepath%\%fx%%ka%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%bw%.swf %gamepath%\%fx%%bw%.swf
+COPY /L /Y %gamepath%\%rp%%fx%%pi%.swf %gamepath%\%fx%%pi%.swf
 DEL %gamepath%\%rp%*
 ECHO.
 ECHO Changes applied.
