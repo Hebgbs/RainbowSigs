@@ -476,7 +476,7 @@ REN %gamepath%\%fx%%sw%.swf %bk%%fx%%sw%.swf
 REN %gamepath%\%fx%%ax%.swf %bk%%fx%%ax%.swf
 REN %gamepath%\%fx%%ka%.swf %bk%%fx%%ka%.swf
 REN %gamepath%\%fx%%bw%.swf %bk%%fx%%bw%.swf
-REN %gamepath%\%fx%%bw%.swf %bk%%fx%%pi%.swf
+REN %gamepath%\%fx%%pi%.swf %bk%%fx%%pi%.swf
 COPY /Y %~dp0\%an%%ax%.swf %gamepath%\%rb%%an%%ax%.swf
 COPY /Y %~dp0\%an%%bw%.swf %gamepath%\%rb%%an%%bw%.swf
 COPY /Y %~dp0\%an%%fi%.swf %gamepath%\%rb%%an%%fi%.swf
