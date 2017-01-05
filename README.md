@@ -1,7 +1,7 @@
 #Rainbow sigs
 
 Modification made by Blue Flame  
-One-click mirror and batch scripts by Bad Minotaur
+One-click mirror and batch scripts by w/ cheese
 
 ###ABOUT 
 This set of files are modified animations, recolouring the stock heavy attacks (signatures) for all characters to become multi-coloured and pretty.

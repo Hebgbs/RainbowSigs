@@ -2,7 +2,7 @@
 
 REM | Made with love by Brandon Bachman
 REM | Discord: "NJVS | Bad Minotaur"
-SET rev=Revision 3.0 (111916)
+SET rev=Version 3.14 (010417)
 
 REM +++++++++++++++++++++++++++++++++++++++
 REM + Things to make stuff easier for me. +
@@ -295,7 +295,7 @@ if '%choice%'=='3' GOTO help1
 :help1
 CLS
 ECHO Rainbow Signatures by Blue Flame
-ECHO Script by Bad Minotaur
+ECHO Script by w/ cheese (Bad Minotaur)
 ECHO.
 ECHO The Rainbow Signatures project is an incomplete,
 ECHO but ongoing effort to make Brawlhalla prettier.
