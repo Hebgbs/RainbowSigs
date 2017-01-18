@@ -19,7 +19,7 @@ This mirror is provided as a service to the Brawlhalla community for ease of ins
 See file "How to batch.txt" for specific information about that.
 
 === MODIFICATION INFO ===
-Last update was downloaded on 01/04/2017
-By 04/11/2017 this set will become outdated and you'll need to download it again from the original source or when this mirror is updated.
+Last update was downloaded on 01/18/2017
+By 04/25/2017 this set will become outdated and you'll need to download it again from the original source or when this mirror is updated.
 
 I will announce updates @ https://discord.gg/0f8NrHSFtWCwFeLJ
