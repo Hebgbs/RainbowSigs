@@ -2,7 +2,7 @@
 
 REM | Made with love by Brandon Bachman
 REM | Discord: "NJVS | Bad Minotaur"
-SET rev=Revision 3.2 (011817)
+SET rev=Revision 3.5 (030817)
 
 REM +++++++++++++++++++++++++++++++++++++++
 REM + Things to make stuff easier for me. +

@@ -8,7 +8,7 @@
 #       #   #     #     by Blue Flame
  ###    #   #  ##  ###
     #   #   #   #     # Git repo + Batch
-####  #####  ###  ####  by w/ cheese
+####  #####  ###  ####  by w/ incense
 
 === ABOUT ===
 This set of files are modified animations, recolouring the stock heavy attacks (signatures) for all characters to become multi-coloured and pretty.
