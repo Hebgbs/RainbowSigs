@@ -1,7 +1,7 @@
 #Rainbow sigs
 
 Modification made by Blue Flame  
-One-click mirror and batch scripts by w/ incense
+One-click mirror and batch scripts by w/ :heart:
 
 ###ABOUT 
 This set of files are modified animations, recolouring the stock heavy attacks (signatures) for all characters to become multi-coloured and pretty.
